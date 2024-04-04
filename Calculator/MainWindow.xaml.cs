@@ -19,11 +19,13 @@ namespace Calculator
         public MainWindow()
         {
             InitializeComponent();
+            btnSquare.Visibility = Visibility.Hidden;
+            btnEx.Visibility = Visibility.Hidden;
         }
 
         private void No0_Click(object sender, RoutedEventArgs e)
         {
-            lblNumber.Content += No0.Content.ToString();
+            if(lblNumber.Content != string.Empty) lblNumber.Content += No0.Content.ToString();
         }
 
         private void No1_Click(object sender, RoutedEventArgs e)
@@ -69,6 +71,92 @@ namespace Calculator
         private void No9_Click(object sender, RoutedEventArgs e)
         {
             lblNumber.Content += No9.Content.ToString();
+        }
+
+        private void btnPlus_Click(object sender, RoutedEventArgs e)
+        {
+            if(!lblNumber.Content.ToString().Contains(btnPlus.Content.ToString())) lblNumber.Content += btnPlus.Content.ToString();
+        }
+
+        private void btnMinus_Click(object sender, RoutedEventArgs e)
+        {
+            if (!lblNumber.Content.ToString().Contains(btnMinus.Content.ToString())) lblNumber.Content += btnMinus.Content.ToString();
+        }
+
+        private void btnMulti_Click(object sender, RoutedEventArgs e)
+        {
+            if (!lblNumber.Content.ToString().Contains(btnMulti.Content.ToString())) lblNumber.Content += btnMulti.Content.ToString();
+        }
+
+        private void btnDivide_Click(object sender, RoutedEventArgs e)
+        {
+            if (!lblNumber.Content.ToString().Contains(btnDivide.Content.ToString())) lblNumber.Content += btnDivide.Content.ToString();
+        }
+
+        private void btnEqual_Click(object sender, RoutedEventArgs e)
+        {
+            if (lblNumber.Content.ToString().Contains(btnPlus.Content.ToString()))
+            {
+                var numbers = lblNumber.Content.ToString().Split('+');
+                int result = int.Parse(numbers[0]) + int.Parse(numbers[1]);
+                lblEqual.Content = result.ToString();
+            }
+            else if (lblNumber.Content.ToString().Contains(btnMinus.Content.ToString()))
+            {
+                var numbers = lblNumber.Content.ToString().Split('-');
+                int result = int.Parse(numbers[0]) - int.Parse(numbers[1]);
+                lblEqual.Content = result.ToString();
+            }
+            else if (lblNumber.Content.ToString().Contains(btnMulti.Content.ToString()))
+            {
+                var numbers = lblNumber.Content.ToString().Split('*');
+                int result = int.Parse(numbers[0]) * int.Parse(numbers[1]);
+                lblEqual.Content = result.ToString();
+            }
+            else if (lblNumber.Content.ToString().Contains(btnDivide.Content.ToString()))
+            {
+                var numbers = lblNumber.Content.ToString().Split('/');
+                int result = int.Parse(numbers[0]) / int.Parse(numbers[1]);
+                lblEqual.Content = result.ToString();
+            }
+        }
+
+        private void btnSquare_Click(object sender, RoutedEventArgs e)
+        {
+            if(lblNumber.Content != string.Empty)
+            {
+                int number = int.Parse(lblNumber.Content.ToString());
+                lblEqual.Content = Math.Sqrt(number).ToString();
+            }
+        }
+
+        private void btnEx_Click(object sender, RoutedEventArgs e)
+        {
+            if (lblNumber.Content != string.Empty)
+            {
+                int number = int.Parse(lblNumber.Content.ToString());
+                lblEqual.Content = Math.Pow(number, 2).ToString();
+            }
+        }
+
+        private void btnClear_Click(object sender, RoutedEventArgs e)
+        {
+            lblNumber.Content = string.Empty;
+        }
+
+        private void Hide_Checked(object sender, RoutedEventArgs e)
+        {
+            if(Hide.IsChecked == true)
+            {
+                btnSquare.Visibility = Visibility.Visible;
+                btnEx.Visibility = Visibility.Visible;
+            }
+        }
+
+        private void Hide_Unchecked(object sender, RoutedEventArgs e)
+        {
+            btnSquare.Visibility = Visibility.Hidden;
+            btnEx.Visibility = Visibility.Hidden;
         }
     }
 }
