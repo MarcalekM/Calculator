@@ -75,22 +75,22 @@ namespace Calculator
 
         private void btnPlus_Click(object sender, RoutedEventArgs e)
         {
-            if(!lblNumber.Content.ToString().Contains(btnPlus.Content.ToString())) lblNumber.Content += btnPlus.Content.ToString();
+            if(lblNumber.Content != string.Empty && !lblNumber.Content.ToString().Contains(btnPlus.Content.ToString())) lblNumber.Content += btnPlus.Content.ToString();
         }
 
         private void btnMinus_Click(object sender, RoutedEventArgs e)
         {
-            if (!lblNumber.Content.ToString().Contains(btnMinus.Content.ToString())) lblNumber.Content += btnMinus.Content.ToString();
+            if (lblNumber.Content != string.Empty && !lblNumber.Content.ToString().Contains(btnMinus.Content.ToString())) lblNumber.Content += btnMinus.Content.ToString();
         }
 
         private void btnMulti_Click(object sender, RoutedEventArgs e)
         {
-            if (!lblNumber.Content.ToString().Contains(btnMulti.Content.ToString())) lblNumber.Content += btnMulti.Content.ToString();
+            if (lblNumber.Content != string.Empty &&!lblNumber.Content.ToString().Contains(btnMulti.Content.ToString())) lblNumber.Content += btnMulti.Content.ToString();
         }
 
         private void btnDivide_Click(object sender, RoutedEventArgs e)
         {
-            if (!lblNumber.Content.ToString().Contains(btnDivide.Content.ToString())) lblNumber.Content += btnDivide.Content.ToString();
+            if (lblNumber.Content != string.Empty && !lblNumber.Content.ToString().Contains(btnDivide.Content.ToString())) lblNumber.Content += btnDivide.Content.ToString();
         }
 
         private void btnEqual_Click(object sender, RoutedEventArgs e)
@@ -119,6 +119,7 @@ namespace Calculator
                 int result = int.Parse(numbers[0]) / int.Parse(numbers[1]);
                 lblEqual.Content = result.ToString();
             }
+            if(lblNumber.Content != string.Empty) lblNumber.Content += "=";
         }
 
         private void btnSquare_Click(object sender, RoutedEventArgs e)
