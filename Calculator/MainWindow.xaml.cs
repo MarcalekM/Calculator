@@ -159,5 +159,10 @@ namespace Calculator
             btnSquare.Visibility = Visibility.Hidden;
             btnEx.Visibility = Visibility.Hidden;
         }
+
+        private void btnTornOff_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
     }
 }
