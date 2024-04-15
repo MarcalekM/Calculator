@@ -12,7 +12,11 @@ using System.Windows.Shapes;
 namespace Calculator
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// A számológép képes két egész számmal való műveletvégzésre
+    /// Az alapművetek elvégzéséhez, mint az összeadás vagy osztás végrehajtásához be kell írni mind a két számot,a számok közé az elvégzendő művelet művelei jelét, valamint meg kell nyomni az egyenlőség gombot, hogy elvégezze a számítást
+    /// A bonyolultabb műveletek, melyeknek gombjai alapértelmezetten rejtve vannak, az elvégzéséhez be kell írni a számot amivel dolgozni kívánunk illetve meg kell nyomni az elvégezni kívánt műveletnek megfelelő gombot.
+    /// A rejtett gombok megjelenítéséért a számológépen elhelyezett checkbox felelős
+    /// A program reszponzív, tehát újra lehet méretezni, azonban rendelkezik egy minimum szélességgel és magassággal
     /// </summary>
     public partial class MainWindow : Window
     {
